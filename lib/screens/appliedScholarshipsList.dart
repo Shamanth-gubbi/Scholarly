@@ -12,9 +12,9 @@ class _AppliedScholarshipsListState extends State<AppliedScholarshipsList> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('Applied Scholarships List'),
-      ),
+      // appBar: AppBar(
+      //   title: const Text('Applied Scholarships List'),
+      // ),
       body: Center(
         child: ElevatedButton(
           // Within the `FirstScreen` widget
