@@ -2,6 +2,7 @@ library scholarlyf.globals;
 
 bool isLoggedInStudent = false;
 int studentId = 1;
+int scholarshipId = 0;
 String studentName = "";
 String studentEmail = "";
 String studentPhoto = "";
@@ -14,4 +15,4 @@ String studentCurQual = "";
 String studentBasicQual = "";
 
 bool isLoggedInCompany = false;
-int companyId = 0;
+int companyId = 5;

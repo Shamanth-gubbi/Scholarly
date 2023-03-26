@@ -3,18 +3,18 @@ import 'dart:io';
 import 'package:flutter/foundation.dart';
 import 'package:http/http.dart' as http;
 import '../models/login.dart';
-import '../models/scholarship.dart';
+import '../models/application.dart';
 
-class ScholarshipServices {
-  List<scholarship> parseUser(String responseBody) {
+class ApplicationServices {
+  List<application> parseUser(String responseBody) {
     var list = json.decode(responseBody) as List<dynamic>;
-    var users = list.map((e) => scholarship.fromJson(e)).toList();
+    var users = list.map((e) => application.fromJson(e)).toList();
     return users;
   }
 
-  Future<List<scholarship>> fetchScholarship() async {
-    final http.Response response =
-        await http.get(Uri.parse('http://localhost:3000/scholarship'));
+  Future<List<application>> fetchApplicationbyid(int id) async {
+    final http.Response response = await http
+        .get(Uri.parse('http://localhost:3000/application/' + id.toString()));
 
     if (response.statusCode == 200) {
       //print(response.body);
@@ -24,9 +24,9 @@ class ScholarshipServices {
     }
   }
 
-  Future<List<scholarship>> fetchScholarshipbyid(int id) async {
+  Future<List<application>> fetchApplicationbysponid(int id) async {
     final http.Response response = await http
-        .get(Uri.parse('http://localhost:3000/scholarship/' + id.toString()));
+        .get(Uri.parse('http://localhost:3000/applicants/' + id.toString()));
 
     if (response.statusCode == 200) {
       //print(response.body);

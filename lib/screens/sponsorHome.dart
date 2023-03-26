@@ -4,30 +4,29 @@ import '../services/applicationServices.dart';
 import '../services/global.dart' as global;
 import './scholarchipDetail.dart';
 
-class AppliedScholarshipsList extends StatefulWidget {
-  const AppliedScholarshipsList({Key? key}) : super(key: key);
+class PostedScholarshipsList extends StatefulWidget {
+  const PostedScholarshipsList({Key? key}) : super(key: key);
 
   @override
-  State<AppliedScholarshipsList> createState() =>
-      _AppliedScholarshipsListState();
+  State<PostedScholarshipsList> createState() => _PostedScholarshipsListState();
 }
 
-class _AppliedScholarshipsListState extends State<AppliedScholarshipsList> {
+class _PostedScholarshipsListState extends State<PostedScholarshipsList> {
   ApplicationServices applicationServices = ApplicationServices();
   late Future<List<application>> futureApplications;
 
   void initState() {
     super.initState();
     futureApplications =
-        applicationServices.fetchApplicationbyid(global.studentId);
+        applicationServices.fetchApplicationbysponid(global.companyId);
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      // appBar: AppBar(
-      //   title: const Text('Applied Scholarships List'),
-      // ),
+      appBar: AppBar(
+        title: const Text('Scholarly'),
+      ),
       body: Center(
         // margin: const EdgeInsets.only(top: 40),
         child: FutureBuilder<List<application>>(
@@ -63,6 +62,12 @@ class _AppliedScholarshipsListState extends State<AppliedScholarshipsList> {
             return const CircularProgressIndicator();
           },
         ),
+      ),
+      floatingActionButton: FloatingActionButton(
+        onPressed: () => Navigator.of(context).push(
+          MaterialPageRoute(builder: (context) => ScholarshipDetails()),
+        ),
+        child: const Icon(Icons.add),
       ),
     );
   }

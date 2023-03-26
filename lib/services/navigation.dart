@@ -10,6 +10,7 @@ import '../screens/studentHome.dart';
 import '../screens/applicants.dart';
 import '../screens/studentEditProfile.dart';
 import '../screens/posted.dart';
+import '../screens/sponsorHome.dart';
 // class MyNavigator extends StatefulWidget {
 //   const MyNavigator({Key? key}) : super(key: key);
 
@@ -42,7 +43,7 @@ class MyNavigator extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Named Routes Demo',
-      initialRoute: '/homePage',
+      initialRoute: '/sponsorHome',
       routes: {
         '/': (context) => const ScholarshipList(),
         '/scholarshipDetails': (context) => const ScholarshipDetails(),
@@ -56,7 +57,7 @@ class MyNavigator extends StatelessWidget {
         '/bottomnavbar': (context) => const MyStatefulWidget(),
         '/studentEditProfile': (context) => const studentEditProfile(),
         '/posted': (context) => const Posted(),
-        '/scholarshipDetails': (context) => const ScholarshipDetails(),
+        '/sponsorHome': (context) => const PostedScholarshipsList(),
         '/scholarshipDetails': (context) => const ScholarshipDetails(),
       },
     );
