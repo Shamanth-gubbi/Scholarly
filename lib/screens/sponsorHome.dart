@@ -3,6 +3,8 @@ import '../models/application.dart';
 import '../services/applicationServices.dart';
 import '../services/global.dart' as global;
 import './scholarchipDetail.dart';
+import './applicants.dart';
+import './addScholarship.dart';
 
 class PostedScholarshipsList extends StatefulWidget {
   const PostedScholarshipsList({Key? key}) : super(key: key);
@@ -47,7 +49,7 @@ class _PostedScholarshipsListState extends State<PostedScholarshipsList> {
                         print(global.scholarshipId);
                         Navigator.of(context).push(
                           MaterialPageRoute(
-                              builder: (context) => ScholarshipDetails()),
+                              builder: (context) => ApplicantsList()),
                         );
                       },
                     ),
@@ -65,7 +67,7 @@ class _PostedScholarshipsListState extends State<PostedScholarshipsList> {
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: () => Navigator.of(context).push(
-          MaterialPageRoute(builder: (context) => ScholarshipDetails()),
+          MaterialPageRoute(builder: (context) => AddScholarship()),
         ),
         child: const Icon(Icons.add),
       ),

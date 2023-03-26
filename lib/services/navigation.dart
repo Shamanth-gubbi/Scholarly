@@ -56,7 +56,7 @@ class MyNavigator extends StatelessWidget {
         '/applicants': (context) => const ExampleDragAndDrop(),
         '/bottomnavbar': (context) => const MyStatefulWidget(),
         '/studentEditProfile': (context) => const studentEditProfile(),
-        '/posted': (context) => const Posted(),
+        // '/posted': (context) => const Posted(),
         '/sponsorHome': (context) => const PostedScholarshipsList(),
         '/scholarshipDetails': (context) => const ScholarshipDetails(),
       },
