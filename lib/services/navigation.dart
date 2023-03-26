@@ -8,6 +8,8 @@ import '../screens/studentLogin.dart';
 import '../widgets/bottomNavbar.dart';
 import '../screens/studentHome.dart';
 import '../screens/applicants.dart';
+import '../screens/studentEditProfile.dart';
+import '../screens/posted.dart';
 // class MyNavigator extends StatefulWidget {
 //   const MyNavigator({Key? key}) : super(key: key);
 
@@ -40,7 +42,7 @@ class MyNavigator extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Named Routes Demo',
-      initialRoute: '/bottomnavbar',
+      initialRoute: '/homePage',
       routes: {
         '/': (context) => const ScholarshipList(),
         '/scholarshipDetails': (context) => const ScholarshipDetails(),
@@ -52,8 +54,8 @@ class MyNavigator extends StatelessWidget {
         '/studentLogin': (context) => StudentLogin(),
         '/applicants': (context) => const ExampleDragAndDrop(),
         '/bottomnavbar': (context) => const MyStatefulWidget(),
-        '/scholarshipDetails': (context) => const ScholarshipDetails(),
-        '/scholarshipDetails': (context) => const ScholarshipDetails(),
+        '/studentEditProfile': (context) => const studentEditProfile(),
+        '/posted': (context) => const Posted(),
         '/scholarshipDetails': (context) => const ScholarshipDetails(),
         '/scholarshipDetails': (context) => const ScholarshipDetails(),
       },

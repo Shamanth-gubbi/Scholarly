@@ -3,6 +3,7 @@ import 'dart:io';
 import 'package:http/http.dart' as http;
 import '../models/login.dart';
 import '../models/student.dart';
+import 'package:flutter/foundation.dart';
 
 class StudentServices {
   static const API = 'http://localhost:3000/';
@@ -28,9 +29,27 @@ class StudentServices {
     }
   }
 
-  Future<student> fetchs() async {
+  List<student> parseUser(String responseBody) {
+    var list = json.decode(responseBody) as List<dynamic>;
+    var users = list.map((e) => student.fromJson(e)).toList();
+    return users;
+  }
+
+  Future<List<student>> fetchScholarship() async {
     final response =
-        await http.get(Uri.parse('http://localhost:3000/students/1'));
+        await http.get(Uri.parse('http://localhost:3000/students/'));
+
+    if (response.statusCode == 200) {
+      return compute(parseUser, response.body);
+    } else {
+      throw Exception(response.statusCode);
+    }
+  }
+
+  Future<student> fetchs(int id) async {
+    //String url = API + 'students/' + id.toString();
+    final response = await http
+        .get(Uri.parse('http://localhost:3000/students/' + id.toString()));
 
     if (response.statusCode == 200) {
       // If the server did return a 200 OK response,

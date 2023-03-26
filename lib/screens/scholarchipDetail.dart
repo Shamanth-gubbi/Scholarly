@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import '../services/sideNavbar.dart';
+//import '../services/sideNavbar.dart';
 
 class ScholarshipDetails extends StatefulWidget {
   const ScholarshipDetails({Key? key}) : super(key: key);

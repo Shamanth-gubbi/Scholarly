@@ -20,7 +20,7 @@ class _AppliedScholarshipsListState extends State<AppliedScholarshipsList> {
           // Within the `FirstScreen` widget
           onPressed: () {
             // Navigate to the second screen using a named route.
-            Navigator.pushNamed(context, '/decision');
+            Navigator.pushNamed(context, '/Decision');
           },
           child: const Text('Decision'),
         ),
