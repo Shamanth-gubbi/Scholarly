@@ -1,61 +1,8 @@
 import 'package:flutter/material.dart';
-import 'dart:async';
-import './OptionScreenSponsor.dart';
-import './OptionScreenStudent.dart';
+import './studentLogin.dart';
+import './studentSignup.dart';
 
-class FlashScreen extends StatefulWidget {
-  const FlashScreen({Key? key}) : super(key: key);
-
-  @override
-  State<FlashScreen> createState() => _FlashScreenState();
-}
-
-class _FlashScreenState extends State<FlashScreen> {
-  @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Loading and Login',
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
-      ),
-      home: MyLoadingScreen(),
-    );
-  }
-}
-
-class MyLoadingScreen extends StatefulWidget {
-  @override
-  _MyLoadingScreenState createState() => _MyLoadingScreenState();
-}
-
-class _MyLoadingScreenState extends State<MyLoadingScreen> {
-  @override
-  void initState() {
-    super.initState();
-    Timer(Duration(seconds: 3), () {
-      Navigator.of(context).pushReplacement(
-        MaterialPageRoute(builder: (context) => MyLoginPage()),
-      );
-    });
-  }
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      backgroundColor: Colors.blue,
-      body: Center(
-        child: Text(
-          'Scholarly',
-          style: TextStyle(
-              fontSize: 30, color: Colors.white, fontWeight: FontWeight.w800),
-          textAlign: TextAlign.center,
-        ),
-      ),
-    );
-  }
-}
-
-class MyLoginPage extends StatelessWidget {
+class OptionScreenStudent extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -67,7 +14,7 @@ class MyLoginPage extends StatelessWidget {
             SizedBox(
                 height: 40,
                 child: Text(
-                  'Are you ',
+                  'Welcome Student! ',
                   textAlign: TextAlign.center,
                   style: TextStyle(
                       fontSize: 30,
@@ -93,32 +40,25 @@ class MyLoginPage extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     Text(
-                      'A Student',
+                      'Login ',
                       style: TextStyle(
-                          fontSize: 14,
+                          fontSize: 30,
                           color: Colors.white,
                           fontWeight: FontWeight.w600),
                     ),
-                    Icon(Icons.person),
+                    Icon(Icons.arrow_forward),
                   ],
                 ),
               ),
               onPressed: () {
-                Navigator.of(context).pushReplacement(MaterialPageRoute(
-                    builder: (context) => OptionScreenStudent()));
-                // TODO: Add signup logic
+                Navigator.of(context).push(
+                  MaterialPageRoute(builder: (context) => StudentLogin()),
+                );
+                // Navigator.of(context).pushReplacement(
+                //     MaterialPageRoute(builder: (context) => LoginScreen()),
               },
             ),
-            SizedBox(
-                height: 40,
-                child: Text(
-                  'OR ',
-                  textAlign: TextAlign.center,
-                  style: TextStyle(
-                      fontSize: 30,
-                      color: Colors.white,
-                      fontWeight: FontWeight.w600),
-                )),
+            SizedBox(height: 40),
             ElevatedButton(
               style: ButtonStyle(
                 padding: MaterialStateProperty.all<EdgeInsets>(
@@ -138,21 +78,21 @@ class MyLoginPage extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     Text(
-                      'A Trust / Sponsor',
+                      'Sign Up',
                       style: TextStyle(
-                          fontSize: 14,
+                          fontSize: 30,
                           color: Colors.white,
                           fontWeight: FontWeight.w600),
                     ),
-                    Icon(Icons.attach_money_rounded),
+                    Icon(Icons.arrow_forward),
                   ],
                 ),
               ),
               onPressed: () {
-                Navigator.of(context).pushReplacement(MaterialPageRoute(
-                        builder: (context) => OptionScreenSponsor())
-                    // TODO: Add signup logic
-                    );
+                Navigator.of(context).push(
+                  MaterialPageRoute(builder: (context) => SignupPage()),
+                );
+                // TODO: Add signup logic
               },
             ),
           ],

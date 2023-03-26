@@ -3,6 +3,8 @@ import '../models/application.dart';
 import '../services/applicationServices.dart';
 import '../services/global.dart' as global;
 import './scholarchipDetail.dart';
+import '../services/studentServices.dart';
+import '../models/student.dart';
 
 class ApplicantsList extends StatefulWidget {
   const ApplicantsList({Key? key}) : super(key: key);

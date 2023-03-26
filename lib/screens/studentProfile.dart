@@ -23,8 +23,8 @@ class _studentProfileState extends State<studentProfile> {
     super.initState();
     //studentId--;
     int id = studentId;
-
-    futureAlbum = studentServices.fetchs(1);
+    // int id = 2;
+    //futureAlbum = studentServices.fetchs(1);
     futureAlbum1 = studentServices.fetchs(id);
   }
 

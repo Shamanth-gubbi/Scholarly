@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import '../screens/scholarchipList.dart';
 import '../screens/scholarchipDetail.dart';
 import '../screens/studentProfile.dart';
-import '../screens/decision.dart';
+import '../screens/OptionScreenSponsor.dart';
 import '../screens/appliedScholarshipsList.dart';
 import '../screens/studentLogin.dart';
 import '../widgets/bottomNavbar.dart';
@@ -11,6 +11,7 @@ import '../screens/applicants.dart';
 import '../screens/studentEditProfile.dart';
 import '../screens/posted.dart';
 import '../screens/sponsorHome.dart';
+import '../screens/flashScreen.dart';
 // class MyNavigator extends StatefulWidget {
 //   const MyNavigator({Key? key}) : super(key: key);
 
@@ -43,12 +44,12 @@ class MyNavigator extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Named Routes Demo',
-      initialRoute: '/sponsorHome',
+      initialRoute: '/flashScreen',
       routes: {
         '/': (context) => const ScholarshipList(),
         '/scholarshipDetails': (context) => const ScholarshipDetails(),
         '/studentProfile': (context) => const studentProfile(),
-        '/Decision': (context) => const Decision(),
+        '/Decision': (context) => OptionScreenSponsor(),
         '/AppliedScholarshipsList': (context) =>
             const AppliedScholarshipsList(),
         '/homePage': (context) => const HomePage(),
@@ -58,7 +59,7 @@ class MyNavigator extends StatelessWidget {
         '/studentEditProfile': (context) => const studentEditProfile(),
         // '/posted': (context) => const Posted(),
         '/sponsorHome': (context) => const PostedScholarshipsList(),
-        '/scholarshipDetails': (context) => const ScholarshipDetails(),
+        '/flashScreen': (context) => const FlashScreen(),
       },
     );
   }

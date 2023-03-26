@@ -46,6 +46,31 @@ class StudentServices {
     }
   }
 
+  Future<student> LoginStudent(String email, String password) async {
+    final response = await http.post(
+      Uri.parse('http://localhost:3000/students/login'),
+      headers: <String, String>{
+        'Content-Type': 'application/json; charset=UTF-8',
+      },
+      body: jsonEncode(<String, String>{
+        'email': email,
+        'password': password,
+      }),
+    );
+
+    if (response.statusCode == 201) {
+      // If the server did return a 201 CREATED response,
+      // then parse the JSON.
+      //print(response.body);
+
+      return student.fromJson(jsonDecode(response.body));
+    } else {
+      // If the server did not return a 201 CREATED response,
+      // then throw an exception.
+      throw Exception('Failed to create album.');
+    }
+  }
+
   Future<student> fetchs(int id) async {
     //String url = API + 'students/' + id.toString();
     final response = await http

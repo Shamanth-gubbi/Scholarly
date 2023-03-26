@@ -1,10 +1,11 @@
 library scholarlyf.globals;
 
 bool isLoggedInStudent = false;
-int studentId = 1;
+int studentId = 3;
 int scholarshipId = 0;
 String studentName = "";
-String studentEmail = "";
+String studentEmail = "hulk@gmail.com";
+String studentPassword = "Hulk";
 String studentPhoto = "";
 String studentGender = "";
 String studentAddress = "";
