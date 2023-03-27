@@ -22,7 +22,7 @@ class _StudentLoginState extends State<StudentLogin> {
   final TextEditingController _controller = TextEditingController();
   final TextEditingController _controller1 = TextEditingController();
   StudentServices studentServices = StudentServices();
-  late Future<student> futureAlbum;
+
   Future<student>? futureAlbum1;
   void initState() {
     super.initState();
@@ -36,61 +36,78 @@ class _StudentLoginState extends State<StudentLogin> {
       appBar: AppBar(
         title: const Text('Scholarly'),
       ),
-      body: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        //mainAxisSize: MainAxisSize.max,
-        children: [
-          Padding(
-            padding: const EdgeInsets.all(8.0),
-            child: TextFormField(
-              controller: _controller,
-              decoration: const InputDecoration(
-                hintText: 'Enter your email',
-              ),
-              onChanged: (value) {
-                setState(() {
-                  global.studentEmail = _controller.text;
-                  print(global.studentEmail);
-                });
-              },
-            ),
-          ),
-          Padding(
-            padding: const EdgeInsets.all(8.0),
-            child: TextFormField(
-              controller: _controller1,
-              decoration: const InputDecoration(
-                hintText: 'Enter your password',
-              ),
-              onChanged: (value) {
-                setState(() {
-                  global.studentPassword = _controller1.text;
-                  print(global.studentPassword);
-                });
-              },
-            ),
-          ),
-          FutureBuilder<student>(
-            future: futureAlbum1,
-            builder: (context, snapshot) {
-              return ElevatedButton(
-                onPressed: () {
-                  setState(() {
-                    futureAlbum1 = studentServices.LoginStudent(
-                        global.studentEmail, global.studentPassword);
-                    global.studentId = snapshot.data!.stuid;
-                    print(snapshot.data!.fname);
-                  });
-
-                  Navigator.of(context).push(MaterialPageRoute(
-                      builder: (context) => const HomePage()));
-                },
-                child: const Text('Login'),
-              );
-            },
-          )
-        ],
+      body: Container(
+        alignment: Alignment.center,
+        padding: const EdgeInsets.all(8.0),
+        child: (futureAlbum1 == null) ? buildColumn() : buildFutureBuilder(),
       ),
+    );
+  }
+
+  FutureBuilder<student> buildFutureBuilder() {
+    return FutureBuilder<student>(
+      future: futureAlbum1,
+      builder: (context, snapshot) {
+        if (snapshot.hasData) {
+          Navigator.of(context)
+              .push(MaterialPageRoute(builder: (context) => const HomePage()));
+          return Text(snapshot.data!.lname);
+        } else if (snapshot.hasError) {
+          return Text('${snapshot.error}');
+        }
+
+        return const CircularProgressIndicator();
+      },
+    );
+  }
+
+  Column buildColumn() {
+    return Column(
+      mainAxisAlignment: MainAxisAlignment.center,
+      //mainAxisSize: MainAxisSize.max,
+      children: [
+        Padding(
+          padding: const EdgeInsets.all(8.0),
+          child: TextFormField(
+            controller: _controller,
+            decoration: const InputDecoration(
+              hintText: 'Enter your email',
+            ),
+            onChanged: (value) {
+              setState(() {
+                global.studentEmail = _controller.text;
+                print(global.studentEmail);
+              });
+            },
+          ),
+        ),
+        Padding(
+          padding: const EdgeInsets.all(8.0),
+          child: TextFormField(
+            controller: _controller1,
+            decoration: const InputDecoration(
+              hintText: 'Enter your password',
+            ),
+            onChanged: (value) {
+              setState(() {
+                global.studentPassword = _controller1.text;
+                print(global.studentPassword);
+              });
+            },
+          ),
+        ),
+        ElevatedButton(
+          onPressed: () {
+            setState(() {
+              // Navigator.of(context).push(
+              //     MaterialPageRoute(builder: (context) => const HomePage()));
+              futureAlbum1 = studentServices.LoginStudent(
+                  global.studentEmail, global.studentPassword);
+            });
+          },
+          child: const Text('Login'),
+        ),
+      ],
     );
   }
 }

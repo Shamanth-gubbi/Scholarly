@@ -22,10 +22,11 @@ class _studentProfileState extends State<studentProfile> {
   void initState() {
     super.initState();
     //studentId--;
-    int id = studentId;
+    String emailid = studentEmail;
+
     // int id = 2;
     //futureAlbum = studentServices.fetchs(1);
-    futureAlbum1 = studentServices.fetchs(id);
+    futureAlbum1 = studentServices.fetchs(emailid);
   }
 
   //User user = User('AlienX', 'alien@gmail.com');
