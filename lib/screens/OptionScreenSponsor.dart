@@ -89,7 +89,7 @@ class OptionScreenSponsor extends StatelessWidget {
               ),
               onPressed: () {
                 Navigator.of(context).push(
-                  MaterialPageRoute(builder: (context) => sponsorLogin()),
+                  MaterialPageRoute(builder: (context) => SponsorSignupPage()),
                 );
               },
             ),

@@ -51,6 +51,7 @@ class _StudentLoginState extends State<StudentLogin> {
         if (snapshot.hasData) {
           Navigator.of(context)
               .push(MaterialPageRoute(builder: (context) => const HomePage()));
+          global.studentId = snapshot.data!.stuid;
           return Text(snapshot.data!.lname);
         } else if (snapshot.hasError) {
           return Text('${snapshot.error}');
