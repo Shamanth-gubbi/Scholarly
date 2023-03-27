@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:scholarlyf/models/student.dart';
+import 'package:scholarlyf/screens/studentLogin.dart';
 import 'package:scholarlyf/services/studentServices.dart';
 import 'package:scholarlyf/services/global.dart' as global;
 import '../screens/studentHome.dart';
@@ -135,7 +136,7 @@ class _SignupPageState extends State<SignupPage> {
                               global.isLoggedInStudent = true;
 
                               Navigator.of(context).push(MaterialPageRoute(
-                                  builder: (context) => const HomePage()));
+                                  builder: (context) => const StudentLogin()));
                             }
                             //global.isLoggedInStudent = true;
                           });

@@ -99,8 +99,8 @@ class _StudentLoginState extends State<StudentLogin> {
         ElevatedButton(
           onPressed: () {
             setState(() {
-              // Navigator.of(context).push(
-              //     MaterialPageRoute(builder: (context) => const HomePage()));
+              Navigator.of(context).push(
+                  MaterialPageRoute(builder: (context) => const HomePage()));
               futureAlbum1 = studentServices.LoginStudent(
                   global.studentEmail, global.studentPassword);
             });
