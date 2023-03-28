@@ -42,19 +42,68 @@ class _studentProfileState extends State<studentProfile> {
           builder: (context, snapshot) {
             if (snapshot.hasData) {
               return Container(
-                alignment: Alignment.center,
+                alignment: Alignment.centerLeft,
                 padding: const EdgeInsets.all(20),
                 child: ListView(
                   padding: const EdgeInsets.all(20),
                   children: [
-                    Text("First Name:  " + snapshot.data!.fname),
-                    Text("Last Name:   " + snapshot.data!.lname),
-                    Text("Email id:   " + snapshot.data!.emailid),
-                    Text("date of birth:   " + snapshot.data!.dob),
-                    Text("address   " + snapshot.data!.staddress),
-                    Text("pincode   " + snapshot.data!.pincode),
-                    Text("phone number   " + snapshot.data!.phone.toString()),
-                    Text(snapshot.data!.stresume),
+                    SizedBox(
+                      // height: 80,
+                      // width: 200,
+                      child: Column(children: [
+                        const Icon(Icons.person, size: 100),
+                        //Image.asset('assets/images/Student.png'),
+                        Text("First Name:  " + snapshot.data!.fname,
+                            style: const TextStyle(
+                              fontSize: 20,
+                              fontWeight: FontWeight.bold,
+                              color: Colors.blue,
+                            )),
+                        Text("Last Name:   " + snapshot.data!.lname,
+                            style: const TextStyle(
+                              fontSize: 20,
+                              fontWeight: FontWeight.bold,
+                              color: Colors.blue,
+                            )),
+                        Text("Email id:   " + snapshot.data!.emailid,
+                            style: const TextStyle(
+                              fontSize: 20,
+                              fontWeight: FontWeight.bold,
+                              color: Colors.blue,
+                            )),
+                        Text("date of birth:   " + snapshot.data!.dob,
+                            style: const TextStyle(
+                              fontSize: 20,
+                              fontWeight: FontWeight.bold,
+                              color: Colors.blue,
+                            )),
+                        Text("address   " + snapshot.data!.staddress,
+                            style: const TextStyle(
+                              fontSize: 20,
+                              fontWeight: FontWeight.bold,
+                              color: Colors.blue,
+                            )),
+                        Text("pincode   " + snapshot.data!.pincode,
+                            style: const TextStyle(
+                              fontSize: 20,
+                              fontWeight: FontWeight.bold,
+                              color: Colors.blue,
+                            )),
+                        Text(
+                            "phone number   " + snapshot.data!.phone.toString(),
+                            style: const TextStyle(
+                              fontSize: 20,
+                              fontWeight: FontWeight.bold,
+                              color: Colors.blue,
+                            )),
+                        Text(snapshot.data!.stresume,
+                            style: const TextStyle(
+                              fontSize: 20,
+                              fontWeight: FontWeight.bold,
+                              color: Colors.blue,
+                            )),
+                      ]),
+                    ),
                   ],
                 ),
               );

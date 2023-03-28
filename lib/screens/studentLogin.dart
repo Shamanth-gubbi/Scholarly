@@ -22,7 +22,7 @@ class _StudentLoginState extends State<StudentLogin> {
   final TextEditingController _controller = TextEditingController();
   final TextEditingController _controller1 = TextEditingController();
   StudentServices studentServices = StudentServices();
-
+  student? stud;
   Future<student>? futureAlbum1;
   void initState() {
     super.initState();
@@ -49,9 +49,9 @@ class _StudentLoginState extends State<StudentLogin> {
       future: futureAlbum1,
       builder: (context, snapshot) {
         if (snapshot.hasData) {
+          global.studentId = snapshot.data!.stuid;
           Navigator.of(context)
               .push(MaterialPageRoute(builder: (context) => const HomePage()));
-          global.studentId = snapshot.data!.stuid;
           return Text(snapshot.data!.lname);
         } else if (snapshot.hasError) {
           return Text('${snapshot.error}');
@@ -100,10 +100,24 @@ class _StudentLoginState extends State<StudentLogin> {
         ElevatedButton(
           onPressed: () {
             setState(() {
-              Navigator.of(context).push(
-                  MaterialPageRoute(builder: (context) => const HomePage()));
+              // stud = await studentServices.LoginStudent(
+              //     global.studentEmail, global.studentPassword);
               futureAlbum1 = studentServices.LoginStudent(
                   global.studentEmail, global.studentPassword);
+              Navigator.of(context).push(
+                  MaterialPageRoute(builder: (context) => const HomePage()));
+              // if (stud == null) {
+              //   print("Invalid Credentials");
+              // } else {
+              //   Navigator.of(context).push(
+              //       MaterialPageRoute(builder: (context) => const HomePage()));
+              //   print("Valid Credentials");
+              // }
+              if (futureAlbum1 == null) {
+                print("Invalid Credentials");
+              } else {
+                print("Valid Credentials");
+              }
             });
           },
           child: const Text('Login'),

@@ -18,4 +18,4 @@ String studentBasicQual = "";
 bool isLoggedInCompany = false;
 String sponsorEmail = "";
 String sponsorPassword = "";
-int companyId = 5;
+int companyId = 2;
