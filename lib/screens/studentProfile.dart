@@ -96,6 +96,7 @@ class _studentProfileState extends State<studentProfile> {
                               fontWeight: FontWeight.bold,
                               color: Colors.blue,
                             )),
+
                         Text(snapshot.data!.stresume,
                             style: const TextStyle(
                               fontSize: 20,

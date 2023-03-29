@@ -99,26 +99,30 @@ class _StudentLoginState extends State<StudentLogin> {
         ),
         ElevatedButton(
           onPressed: () {
-            setState(() {
-              // stud = await studentServices.LoginStudent(
-              //     global.studentEmail, global.studentPassword);
-              futureAlbum1 = studentServices.LoginStudent(
+            setState(() async {
+              stud = await studentServices.LoginStudent(
                   global.studentEmail, global.studentPassword);
-              Navigator.of(context).push(
-                  MaterialPageRoute(builder: (context) => const HomePage()));
-              // if (stud == null) {
-              //   print("Invalid Credentials");
-              // } else {
-              //   Navigator.of(context).push(
-              //       MaterialPageRoute(builder: (context) => const HomePage()));
-              //   print("Valid Credentials");
-              // }
-              if (futureAlbum1 == null) {
+              // futureAlbum1 = studentServices.LoginStudent(
+              //     global.studentEmail, global.studentPassword);
+              // Navigator.of(context).push(
+              //     MaterialPageRoute(builder: (context) => const HomePage()));
+
+              if (stud!.stuid == null) {
                 print("Invalid Credentials");
               } else {
+                global.studentId = stud!.stuid;
+                Navigator.of(context).push(
+                    MaterialPageRoute(builder: (context) => const HomePage()));
                 print("Valid Credentials");
               }
             });
+            // if (stud == null) {
+            //   print("Invalid Credentials");
+            // } else {
+            //   Navigator.of(context).push(
+            //       MaterialPageRoute(builder: (context) => const HomePage()));
+            //   print("Valid Credentials");
+            // }
           },
           child: const Text('Login'),
         ),

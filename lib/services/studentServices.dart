@@ -54,12 +54,12 @@ class StudentServices {
         'Content-Type': 'application/json; charset=UTF-8',
       },
       body: jsonEncode(<String, String>{
-        'email': email,
-        'password': password,
+        'emailid': email,
+        'stupassword': password,
       }),
     );
 
-    if (response.statusCode == 201) {
+    if (response.statusCode == 200) {
       // If the server did return a 201 CREATED response,
       // then parse the JSON.
       //print(response.body);
