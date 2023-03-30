@@ -3,6 +3,7 @@
 Scholarship App built using Flutter.
 
 Link for the server code: https://github.com/Shamanth-gubbi/Scholarly-Server
+YouTube Explanation: https://www.youtube.com/watch?v=rpbJAtOhyMs&ab_channel=DodagattaNihar
 
 The "Scholarly" scholarship application is a comprehensive platform designed to connect students with scholarship opportunities, and donors with deserving applicants. The application is built using Flutter, SQL, and Node.js, and is currently under development.
 
