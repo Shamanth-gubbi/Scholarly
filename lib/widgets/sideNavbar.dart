@@ -1,63 +1,72 @@
 import 'package:flutter/material.dart';
+import 'package:scholarlyf/screens/learn.dart';
 
-class Demo extends StatelessWidget {
-  const Demo({super.key});
+import '../screens/messages.dart';
+import '../screens/studentEditProfile.dart';
+import '../screens/studentProfile.dart';
 
-  static const appTitle = 'Drawer Demo';
-
+class NavDrawer extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
-      title: appTitle,
-      home: SideNavBar(title: appTitle),
-    );
-  }
-}
-
-class SideNavBar extends StatelessWidget {
-  const SideNavBar({super.key, required this.title});
-
-  final String title;
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(title: Text(title)),
-      //body: Text('My Page!'),
-      drawer: Drawer(
-        // Add a ListView to the drawer. This ensures the user can scroll
-        // through the options in the drawer if there isn't enough vertical
-        // space to fit everything.
-        child: ListView(
-          // Important: Remove any padding from the ListView.
-          padding: EdgeInsets.zero,
-          children: [
-            const DrawerHeader(
-              decoration: BoxDecoration(
-                color: Colors.blue,
-              ),
-              child: Text('Drawer Header'),
+    return Drawer(
+      child: ListView(
+        padding: EdgeInsets.zero,
+        children: <Widget>[
+          DrawerHeader(
+            child: Text(
+              'Side menu',
+              style: TextStyle(color: Colors.white, fontSize: 25),
             ),
-            ListTile(
-              title: const Text('Item 1'),
-              onTap: () {
-                // Update the state of the app
-                // ...
-                // Then close the drawer
-                Navigator.pop(context);
-              },
-            ),
-            ListTile(
-              title: const Text('Item 2'),
-              onTap: () {
-                // Update the state of the app
-                // ...
-                // Then close the drawer
-                Navigator.pop(context);
-              },
-            ),
-          ],
-        ),
+            decoration: BoxDecoration(
+                color: Colors.blue[500],
+                image: DecorationImage(
+                    fit: BoxFit.fill, image: AssetImage('../assets/logo.jpg'))),
+          ),
+          ListTile(
+            leading: Icon(Icons.input),
+            title: Text('Welcome'),
+            onTap: () => {},
+          ),
+          ListTile(
+            leading: Icon(Icons.verified_user),
+            title: Text('Profile'),
+            onTap: () => {
+              Navigator.of(context).push(MaterialPageRoute(
+                  builder: (context) => const studentProfile()))
+            },
+          ),
+          ListTile(
+            leading: Icon(Icons.explore),
+            title: Text('Learn'),
+            onTap: () => {
+              Navigator.of(context)
+                  .push(MaterialPageRoute(builder: (context) => const Learn()))
+            },
+          ),
+          ListTile(
+            leading: Icon(Icons.chat),
+            title: Text('Messages'),
+            onTap: () => {
+              Navigator.of(context).push(
+                  MaterialPageRoute(builder: (context) => const Messages()))
+            },
+          ),
+          ListTile(
+            leading: Icon(Icons.settings),
+            title: Text('Settings'),
+            onTap: () => {Navigator.of(context).pop()},
+          ),
+          ListTile(
+            leading: Icon(Icons.border_color),
+            title: Text('Feedback'),
+            onTap: () => {Navigator.of(context).pop()},
+          ),
+          ListTile(
+            leading: Icon(Icons.exit_to_app),
+            title: Text('Logout'),
+            onTap: () => {Navigator.of(context).pop()},
+          ),
+        ],
       ),
     );
   }

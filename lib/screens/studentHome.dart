@@ -2,7 +2,7 @@ import 'dart:io';
 
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-
+import '../widgets/sideNavbar.dart';
 import './appliedScholarshipsList.dart';
 import './scholarchipList.dart';
 import './studentProfile.dart';
@@ -20,6 +20,7 @@ class HomePage extends StatelessWidget {
       home: DefaultTabController(
         length: 3,
         child: Scaffold(
+          drawer: NavDrawer(),
           appBar: AppBar(
             bottom: const TabBar(
               tabs: [

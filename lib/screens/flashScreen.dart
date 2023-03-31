@@ -70,14 +70,14 @@ class MyLoginPage extends StatelessWidget {
                   'Are you ',
                   textAlign: TextAlign.center,
                   style: TextStyle(
-                      fontSize: 30,
+                      fontSize: 25,
                       color: Colors.white,
                       fontWeight: FontWeight.w600),
                 )),
             ElevatedButton(
               style: ButtonStyle(
                 padding: MaterialStateProperty.all<EdgeInsets>(
-                  EdgeInsets.symmetric(vertical: 16.0, horizontal: 60.0),
+                  EdgeInsets.symmetric(vertical: 25.0, horizontal: 60.0),
                 ),
                 backgroundColor:
                     MaterialStateProperty.all<Color>(Color(0xFF8ED0FF)),
@@ -95,7 +95,7 @@ class MyLoginPage extends StatelessWidget {
                     Text(
                       'A Student',
                       style: TextStyle(
-                          fontSize: 14,
+                          fontSize: 18,
                           color: Colors.white,
                           fontWeight: FontWeight.w600),
                     ),
@@ -115,14 +115,14 @@ class MyLoginPage extends StatelessWidget {
                   'OR ',
                   textAlign: TextAlign.center,
                   style: TextStyle(
-                      fontSize: 30,
+                      fontSize: 25,
                       color: Colors.white,
                       fontWeight: FontWeight.w600),
                 )),
             ElevatedButton(
               style: ButtonStyle(
                 padding: MaterialStateProperty.all<EdgeInsets>(
-                  EdgeInsets.symmetric(vertical: 16.0, horizontal: 60.0),
+                  EdgeInsets.symmetric(vertical: 25.0, horizontal: 60.0),
                 ),
                 backgroundColor:
                     MaterialStateProperty.all<Color>(Color(0xFF8ED0FF)),
@@ -140,7 +140,7 @@ class MyLoginPage extends StatelessWidget {
                     Text(
                       'A Trust / Sponsor',
                       style: TextStyle(
-                          fontSize: 14,
+                          fontSize: 18,
                           color: Colors.white,
                           fontWeight: FontWeight.w600),
                     ),

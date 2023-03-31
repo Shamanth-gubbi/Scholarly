@@ -43,7 +43,8 @@ class MyNavigator extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Named Routes Demo',
+      debugShowCheckedModeBanner: false,
+      title: 'Scholarly',
       initialRoute: '/flashScreen',
       routes: {
         '/': (context) => const ScholarshipList(),

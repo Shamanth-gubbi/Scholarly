@@ -67,12 +67,14 @@ class _StudentLoginState extends State<StudentLogin> {
       mainAxisAlignment: MainAxisAlignment.center,
       //mainAxisSize: MainAxisSize.max,
       children: [
+        //Image.asset('../assets/logo.jpg'),
         Padding(
           padding: const EdgeInsets.all(8.0),
           child: TextFormField(
             controller: _controller,
             decoration: const InputDecoration(
               hintText: 'Enter your email',
+              fillColor: Colors.red,
             ),
             onChanged: (value) {
               setState(() {
@@ -98,6 +100,13 @@ class _StudentLoginState extends State<StudentLogin> {
           ),
         ),
         ElevatedButton(
+          style: ElevatedButton.styleFrom(
+            primary: Colors.blue,
+            onPrimary: Colors.white,
+            shadowColor: Colors.grey,
+            elevation: 5,
+            padding: const EdgeInsets.symmetric(horizontal: 170, vertical: 20),
+          ),
           onPressed: () {
             setState(() async {
               stud = await studentServices.LoginStudent(
