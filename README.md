@@ -10,7 +10,7 @@ The "Scholarly" scholarship application is a comprehensive platform designed to 
 # Features
 1. View and apply for scholarships
 2. Create and manage student and donor accounts
-3. Search and filter scholarships by various criteria
+3. Search and filter scholarships by various criteria (future feature)
 4. View scholarship details and requirements
 5. Track scholarship application status
 6. Integration with Google Translate API (future feature)
